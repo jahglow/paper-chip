@@ -1,0 +1,100 @@
+<!--
+@license
+Copyright (c) 2015 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../iron-icon/iron-icon.html">
+<link rel="import" href="../iron-icons/iron-icons.html">
+<link rel="import" href="../paper-styles/paper-styles.html">
+
+<!--
+An element providing a solution to no problem in particular.
+
+Example:
+
+    <paper-chip></paper-chip>
+
+@element paper-chip
+@demo demo/index.html
+-->
+
+<dom-module id="paper-chip">
+
+  <style>
+    :host {
+      display: block;
+      box-sizing: border-box;
+    }
+    :host .chip-container {
+      border-radius:16px;
+      height: 32px;
+      background-color: var(--paper-chip-container-color, --paper-grey-300);
+
+      @apply(--layout-horizontal);
+      @apply(--shadow-elevation-2dp);
+      @apply(--paper-chip-container);
+    }
+
+    :host .chip-label{
+      padding-left:8px;
+      padding-right:16px;
+      line-height:32px;
+      font-size:13px;
+      color: var(--paper-chip-text-color, rgba(0,0,0,0.87));
+    }
+    :host .icon-container{
+      border-radius:50%;
+      width:32px;
+      height:32px;
+      background-color: var(--paper-chip-icon-background-color, --paper-blue-500)
+    }
+    :host .icon-container>iron-icon{
+      padding: 4px;
+      color: var(--paper-chip-icon-color, rgba(0,0,0,0.87));
+    }
+
+  </style>
+
+  <template>
+    <div class="chip-container">
+      <div class="icon-container"><iron-icon icon$="{{icon}}"></iron-icon></div>
+      <div class="chip-label">[[label]]</div>
+    </div>
+  </template>
+
+</dom-module>
+
+<script>
+
+  Polymer({
+
+    is: 'paper-chip',
+
+    properties: {
+
+      /**
+       * `icon` goes at the start of the chip
+       */
+      icon: {
+        type:String,
+        value:''
+     },
+      /**
+       * The label for the chip
+       * */
+      label:{
+        type:String,
+        value:''
+      }
+
+    }
+
+
+  });
+
+</script>
